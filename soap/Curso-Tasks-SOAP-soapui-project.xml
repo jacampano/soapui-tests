@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="cffbceab-5c5c-478a-ab33-4d89f08a9728" activeEnvironment="Default" name="Curso Tasks SOAP" resourceRoot="" soapui-version="5.7.2" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.TestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Report Format(s)" value=""/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="Export JUnit Results" value="false"/>
+  <con:entry key="Export All" value="false"/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="TestSuite" value="TestSuite Curso"/>
+  <con:entry key="Endpoint" value=""/>
+  <con:entry key="Select Report Type" value=""/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="Print Report" value="false"/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="Export JUnit Results with test properties" value="false"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="TestCase" value="&lt;all>"/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="user-settings.xml Password" value=""/>
+  <con:entry key="TestRunner Path" value=""/>
+  <con:entry key="Environment" value="Default"/>
+  <con:entry key="Coverage Report" value="false"/>
+  <con:entry key="Enable UI" value="false"/>
+  <con:entry key="Root Folder" value=""/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Save Project" value="false"/>
+</xml-fragment>]]></con:setting></con:settings><con:interface xsi:type="con:WsdlInterface" id="d20efcd7-1a30-4be6-958f-836086e22a28" wsaVersion="NONE" name="TaskBinding" type="wsdl" bindingName="{http://www.example.org/tasks}TaskBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:4000/tasks?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:4000/tasks?wsdl"><con:part><con:url>http://localhost:4000/tasks?wsdl</con:url><con:content><![CDATA[<definitions targetNamespace="http://www.example.org/tasks" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/tasks" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <!--Mensajes de entrada y salida-->
+  <message name="getAllTasksRequest"/>
+  <message name="getAllTasksResponse">
+    <part name="tasks" type="xsd:string"/>
+  </message>
+  <message name="getTaskByIdRequest">
+    <part name="id" type="xsd:int"/>
+  </message>
+  <message name="getTaskByIdResponse">
+    <part name="task" type="xsd:string"/>
+  </message>
+  <message name="createTaskRequest">
+    <part name="title" type="xsd:string"/>
+    <part name="completed" type="xsd:boolean"/>
+  </message>
+  <message name="createTaskResponse">
+    <part name="id" type="xsd:int"/>
+    <part name="title" type="xsd:string"/>
+    <part name="completed" type="xsd:boolean"/>
+  </message>
+  <message name="updateTaskRequest">
+    <part name="id" type="xsd:int"/>
+    <part name="title" type="xsd:string"/>
+    <part name="completed" type="xsd:boolean"/>
+  </message>
+  <message name="updateTaskResponse">
+    <part name="id" type="xsd:int"/>
+    <part name="title" type="xsd:string"/>
+    <part name="completed" type="xsd:boolean"/>
+  </message>
+  <message name="deleteTaskRequest">
+    <part name="id" type="xsd:int"/>
+  </message>
+  <message name="deleteTaskResponse">
+    <part name="success" type="xsd:boolean"/>
+  </message>
+  <!--Definición de las operaciones-->
+  <portType name="TaskPort">
+    <operation name="getAllTasks">
+      <input message="tns:getAllTasksRequest"/>
+      <output message="tns:getAllTasksResponse"/>
+    </operation>
+    <operation name="getTaskById">
+      <input message="tns:getTaskByIdRequest"/>
+      <output message="tns:getTaskByIdResponse"/>
+    </operation>
+    <operation name="createTask">
+      <input message="tns:createTaskRequest"/>
+      <output message="tns:createTaskResponse"/>
+    </operation>
+    <operation name="updateTask">
+      <input message="tns:updateTaskRequest"/>
+      <output message="tns:updateTaskResponse"/>
+    </operation>
+    <operation name="deleteTask">
+      <input message="tns:deleteTaskRequest"/>
+      <output message="tns:deleteTaskResponse"/>
+    </operation>
+  </portType>
+  <!--Vinculación de las operaciones al estilo SOAP-->
+  <binding name="TaskBinding" type="tns:TaskPort">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getAllTasks">
+      <soap:operation soapAction="http://www.example.org/tasks#getAllTasks"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getTaskById">
+      <soap:operation soapAction="http://www.example.org/tasks#getTaskById"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="createTask">
+      <soap:operation soapAction="http://www.example.org/tasks#createTask"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="updateTask">
+      <soap:operation soapAction="http://www.example.org/tasks#updateTask"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="deleteTask">
+      <soap:operation soapAction="http://www.example.org/tasks#deleteTask"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <!--Servicio y la URL del servicio-->
+  <service name="TaskService">
+    <port name="TaskPort" binding="tns:TaskBinding">
+      <soap:address location="http://localhost:4000/tasks"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:4000/tasks</con:endpoint></con:endpoints><con:operation id="762a50a4-8ad8-4456-af88-584cdb62e937" isOneWay="false" action="http://www.example.org/tasks#createTask" name="createTask" bindingOperationName="createTask" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e06d4ad4-6615-4f3a-822a-fa574527ff9c" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:4000/tasks</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tas="http://www.example.org/tasks">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tas:createTask>
+         <title>?</title>
+         <completed>?</completed>
+      </tas:createTask>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.example.org/tasks#createTask"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="3a1001cd-2714-4078-aa2a-8c6198a1868b" isOneWay="false" action="http://www.example.org/tasks#deleteTask" name="deleteTask" bindingOperationName="deleteTask" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="d9d49319-55fb-473b-81e9-c7ea52f5aadd" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:4000/tasks</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tas="http://www.example.org/tasks">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tas:deleteTask>
+         <id>?</id>
+      </tas:deleteTask>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.example.org/tasks#deleteTask"/></con:call></con:operation><con:operation id="c709716e-8a7e-4bdc-8787-c722bb16b32f" isOneWay="false" action="http://www.example.org/tasks#getAllTasks" name="getAllTasks" bindingOperationName="getAllTasks" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5e834e07-4c3f-4aec-9d64-c59297f67eb2" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:4000/tasks</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tas="http://www.example.org/tasks">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tas:getAllTasks/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.example.org/tasks#getAllTasks"/></con:call></con:operation><con:operation id="f3bba80f-593e-401c-9d56-d64590713e2a" isOneWay="false" action="http://www.example.org/tasks#getTaskById" name="getTaskById" bindingOperationName="getTaskById" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="687a6997-464a-4837-84a5-2719e735f6b4" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:4000/tasks</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tas="http://www.example.org/tasks">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tas:getTaskById>
+         <id>?</id>
+      </tas:getTaskById>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.example.org/tasks#getTaskById"/></con:call></con:operation><con:operation id="96192665-ca77-4bfa-a31e-ed68a20830e3" isOneWay="false" action="http://www.example.org/tasks#updateTask" name="updateTask" bindingOperationName="updateTask" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2884db27-13e8-407f-a1a6-035aed22f7d9" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:4000/tasks</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tas="http://www.example.org/tasks">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tas:updateTask>
+         <id>?</id>
+         <title>?</title>
+         <completed>?</completed>
+      </tas:updateTask>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.example.org/tasks#updateTask"/></con:call></con:operation></con:interface><con:testSuite id="d249d84d-ee4b-456b-a290-5e7131653101" name="TestSuite Curso"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="585932c4-b8d3-483e-9523-d98c3dabecfa" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Ciclo1" searchProperties="true"><con:settings/><con:testStep type="request" id="7e562db9-8c24-46d4-ace1-d1d7ecf2d616" name="createTask"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>TaskBinding</con:interface><con:operation>createTask</con:operation><con:request name="createTask" id="840caacc-1d29-47d4-89d8-3e6a1ed97b92"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:4000/tasks</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tas="http://www.example.org/tasks">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tas:createTask>
+         <title>Tarea1</title>
+         <completed>90</completed>
+      </tas:createTask>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="XPath Match" id="98e003b0-9a41-4f0b-b4ec-b4afebdf6846" name="XPath Match"><con:configuration><path>string-length(//task/id) > 0</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="09dbb4bd-bb07-4e2f-8cbd-1ce3b3ea7c73" name="Script Assertion"><con:configuration><scriptText>// Define la expresión XPath
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def responseXml = messageExchange.responseContent
+def xmlHolder = groovyUtils.getXmlHolder(responseXml)
+
+// Extrae el valor del ID
+def id = xmlHolder.getNodeValue("//task/id")
+log.info "El ID extraído es: ${id}"
+
+// Guarda el ID como propiedad en el contexto
+context.testCase.setPropertyValue("TaskID", id)</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.example.org/tasks#createTask" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="transfer" name="Trasferir ID" id="61c3f3c8-9d96-4c83-991e-047cba5ee294"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="false" ignoreEmpty="false" transferToAll="true" entitize="false" transferChildNodes="false" disabled="false"><con:name>taskID</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>createTask</con:sourceStep><con:sourcePath>//task/id</con:sourcePath><con:targetType>Request</con:targetType><con:targetStep>getTaskById</con:targetStep><con:targetPath>//id</con:targetPath><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="false" disabled="false" entitize="false" ignoreEmpty="false" transferChildNodes="false" transferToAll="true" useXQuery="false"><con:name>taskIDelete</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>createTask</con:sourceStep><con:sourcePath>//task/id</con:sourcePath><con:targetType>Request</con:targetType><con:targetStep>deleteTaskById</con:targetStep><con:targetPath>//id</con:targetPath><con:type>XPATH</con:type><con:targetTransferType>XPATH</con:targetTransferType><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="request" name="getTaskById" id="3e3652d2-892e-421d-9465-dfc1dc372bcd"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>TaskBinding</con:interface><con:operation>getTaskById</con:operation><con:request name="getTaskById" id="e919530f-cf6e-4b9e-99c4-dbcb2f00deec"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:4000/tasks</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tas="http://www.example.org/tasks">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tas:getTaskById>
+         <id>1733441503024</id>
+      </tas:getTaskById>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="2b514235-dc65-41fa-9ba5-745a5b8e820c"/><con:assertion type="XPath Match" id="8730dca4-3698-4b3e-9c99-9ce863de4c89" name="XPath Match"><con:configuration><path>//task/title</path><content>Tarea1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="deleteTaskById" id="aec6bf67-f919-46b6-b3ca-c8e1282f300d"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>TaskBinding</con:interface><con:operation>deleteTask</con:operation><con:request name="deleteTaskById" id="2c4cc414-4afd-4a05-8a36-211a0a1dac83"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:4000/tasks</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tas="http://www.example.org/tasks">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tas:deleteTask>
+         <id>1733441503024</id>
+      </tas:deleteTask>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="6e6660a0-2d62-4001-a3a2-52b5163f0f36"/><con:assertion type="XPath Match" id="3aa4b67e-d0e0-430b-8055-d00809f83596" name="XPath Match"><con:configuration><path>//success</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:loadTest id="90f4f22e-9410-40c8-a8a2-9336cbebd636" name="LoadTest 1"><con:settings/><con:threadCount>1</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>60</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Thread</con:type><con:config><startThreadCount>1</startThreadCount><endThreadCount>5</endThreadCount></con:config></con:loadStrategy><con:assertion type="Step Status" name="Step Status"><con:configuration><name>Step Status</name><min-requests>0</min-requests><test-step>createTask</test-step><max-errors>5</max-errors></con:configuration></con:assertion><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval></con:loadTest><con:properties><con:property><con:name>TaskID</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property></con:properties></con:testCase><con:testCase id="1e314398-70eb-470c-83cf-04b82dee6767" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getTaskById TestCase" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword="" disabled="true"><con:settings/><con:testStep type="request" id="feadd120-4904-48bd-8bad-349c15397c33" name="getTaskById"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>TaskBinding</con:interface><con:operation>getTaskById</con:operation><con:request name="getTaskById" id="d3c8e434-0839-4b4b-8544-42e169c64ed8"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:4000/tasks</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tas="http://www.example.org/tasks">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tas:getTaskById>
+         <id>${#createTasTCk#TaskID}</id>
+      </tas:getTaskById>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.example.org/tasks#getTaskById" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="6e20b49d-aa82-4a6c-ba6a-ff46f1cce530" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getAllTasks TestCase" searchProperties="true" disabled="true"><con:settings/><con:testStep type="request" id="fb485bfd-7aad-4efb-9233-0f9ef09b0a7c" name="getAllTasks"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>TaskBinding</con:interface><con:operation>getAllTasks</con:operation><con:request name="getAllTasks" id="46737c8f-d259-425b-a62a-236358371e47"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:4000/tasks</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tas="http://www.example.org/tasks">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tas:getAllTasks/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.example.org/tasks#getAllTasks"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="8b7cabd1-867f-4777-85af-4e5a2adf7a8a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="deleteTask TestCase" searchProperties="true" disabled="true"><con:settings/><con:testStep type="request" id="ceaf3221-ba8f-411f-9418-0b52c31d059b" name="deleteTask"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>TaskBinding</con:interface><con:operation>deleteTask</con:operation><con:request name="deleteTask" id="ec89b0af-b132-4116-8de9-2bce39481262"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:4000/tasks</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tas="http://www.example.org/tasks">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tas:deleteTask>
+         <id>?</id>
+      </tas:deleteTask>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.example.org/tasks#deleteTask"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="fdd449fd-5024-4929-8c35-7b05dbe9f5e0" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="updateTask TestCase" searchProperties="true" disabled="true"><con:settings/><con:testStep type="request" id="184f74b0-e6d6-4b8d-9012-1d737761733d" name="updateTask"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>TaskBinding</con:interface><con:operation>updateTask</con:operation><con:request name="updateTask" id="22feb8df-023a-4bb7-8978-ac6e6272f962"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:4000/tasks</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tas="http://www.example.org/tasks">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tas:updateTask>
+         <id>?</id>
+         <title>?</title>
+         <completed>?</completed>
+      </tas:updateTask>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.example.org/tasks#updateTask"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
